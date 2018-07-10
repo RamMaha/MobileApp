@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Signature Pad demo</title>
+  <meta name="description" content="Signature Pad - HTML5 canvas based smooth signature drawing using variable width spline interpolation.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="./SignaturePad/signature-pad.css">
+
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="css/ie9.css">
+  <![endif]-->
+  
+  
+ </head>
+<body onselectstart="return false">
+
+  <div id="signature-pad" class="signature-pad">
+    <div class="signature-pad--body">
+      <canvas width="664" height="373"></canvas>
+    </div>
+    <div class="signature-pad--footer">
+      <div class="description">Sign above</div>
+      <div class="signature-pad--actions">
+        <div>
+          <button type="button" class="button clear" data-action="clear">Clear</button>
+        </div>
+        <div>
+          <button type="button" id="savePNG" class="button savePNG" >OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+		
+  <script src="./SignaturePad/signature_pad.umd.js"></script>
+  <script src="./SignaturePad/app.js"></script>
+</body>
+</html>
+
+<script>
+$('#savePNG').click(function () {
+  debugger;
+  var JobcardCode = getParameterByName('JobcardCode');
+   var urls = "http://192.168.1.4:85/MobileApp/signature.php";
+		  if (signaturePad.isEmpty()) {
+			alert("Please provide a signature first.");
+		  } else {
+			var dataURL = signaturePad.toDataURL("image/png");
+			$.ajax({ 
+				type: "POST", 
+				url: urls,
+				dataType: 'text',
+				data: {
+					img : dataURL,
+					filename:JobcardCode
+				},
+				success: function(data){
+					debugger;
+					CloseMySelf(data);
+				}
+			});
+		  }
+	});
+	
+	function getParameterByName(name) {
+    var url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function CloseMySelf(Filename) {
+debugger;
+	var CurrentDate = formatDate(new Date());
+	var JobcardCode = getParameterByName('JobcardCode');
+	var url = "http://192.168.1.4:85/MobileApp/auth.php";
+	var loginString ="digitalsign="+Filename+"&CreatedBy=1&CreatedDate="+CurrentDate+"&JobcardCode="+JobcardCode +"&Page=JobCardSign" ;
+                $.ajax({
+                    type: "POST",crossDomain: true, cache: false,
+                    url: url,
+                    data: loginString,
+                    success: function(data){
+					debugger;
+                        if(data.includes("success")) {
+						alert("Submited successfully.."); 
+                            window.location.href = "JobCardView.html?JobcardCode="+JobcardCode ;
+                        }
+                        else if(data.includes("error"))
+                            alert("submited Failed..!");
+						else if(data=="exist")
+                            alert("JobCard Already exists"); 
+                    }
+                });
+}
+
+function formatDate(date) {
+			var d = new Date(date),
+				month = '' + (d.getMonth() + 1),
+				day = '' + d.getDate(),
+				year = d.getFullYear();
+
+			if (month.length < 2) month = '0' + month;
+			if (day.length < 2) day = '0' + day;
+
+			return [year, month, day].join('-');
+		}
+</script>

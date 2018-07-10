@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Employee Registration</title>
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+<style>
+	.input-field.img {
+    margin-top: 10px !important;
+	border-top: 1px solid lightgrey;
+}
+
+.input-field.last {
+    margin-top: 10px !important;
+	border-bottom: none;
+}
+
+.input-field {
+    margin-top: 10px !important;
+	border-bottom: 1px solid lightgrey;
+}
+.center {
+    margin: auto;
+    width: 10% !important;
+}
+
+</style>
+    <!-- Custome CSS-->
+    <link href="css/custom.css" type="text/css" rel="stylesheet">
+	<link href="css/jquery-ui.css" type="text/css" rel="stylesheet">
+  </head>
+  <body class="layout-semi-dark" style="">
+  <!-- Start Page Loading -->
+   <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+   </div>
+   <!-- End Page Loading -->
+     <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+	     <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+	 <!-- start header nav-->
+		<div class="topnav" id="myTopnav">
+		  <div class="floating-box1">
+		  <label class="Header">Test App </label>
+		  </div>
+		  <div class="floating-box2">
+		  <div class="right" style="margin-top: 8px;">
+			    <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
+                  <i class="material-icons">format_indent_increase</i>
+                </a>
+			</div>
+		  </div>
+		</div>
+    </header> 
+    <!-- END HEADER --> 
+	    <div id="main">
+		  <!-- START WRAPPER -->
+		  <div class="wrapper">
+		  <aside id="left-sidebar-nav">
+          <ul id="chat-out" class="side-nav rightside-navigation right-aligned ps-container ps-active-y" >
+            <li class="li-hover">
+              <div class="row">
+                <div id="settings" class="col s12 active" >
+                  <ul class="collection border-none">
+                    <li class="collection-item border-none">                    
+                      <a href="EmployeeRegistration.html" class="waves-cyan"><i class="material-icons">keyboard_arrow_right</i><span>Employee</span></a>
+                    </li>
+                    <li class="collection-item border-none">
+					<a href="JobCard.html" class="waves-cyan"><i class="material-icons">keyboard_arrow_right</i><span>JobCard</span></a>
+                    </li>
+					<li class="collection-item border-none">
+					<a href="JobCardList.html" class="waves-cyan"><i class="material-icons">keyboard_arrow_right</i><span>JobCard List</span></a>
+                    </li>
+                    <li class="collection-item border-none">
+                       <a href="Report_Supervisor.html" class="waves-cyan"><i class="material-icons">keyboard_arrow_right</i><span>Report</span></a>
+                    </li>
+                  </ul>
+                </div>
+               </div>
+            </li>
+          <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+		  <div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div>
+		  <div class="ps-scrollbar-y-rail" style="top: 0px; height: 583px; right: 3px;">
+		  <div class="ps-scrollbar-y" style="top: 0px; height: 372px;"></div></div></ul>
+        </aside>
+        <!-- END RIGHT SIDEBAR NAV-->
+		<section id="content">
+          <!--start container-->
+		 <div class="container">			  
+			 <div class="section">
+              <div id="basic-form" class="section">
+                <div class="row">
+                  <div class="col s12 m12 l6">
+                    <div class="card-panel">
+                      <div class="row">
+                        <div class="col s12">
+						
+						 <div class="row">
+                            <div class="input-field last col s12">
+								<div align="center">
+								  <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt=""  width="150" height="150" />
+								 </div>
+                            </div>
+                          </div>
+						
+                          <div class="row">
+                            <div class="input-field last col s12">
+								<div class="col s6">
+								  <label for="JobcardCode">Jobcard Code :</label>
+								 </div>
+								 <div class="col s6">
+								   <label id="JobcardCode"> JC2018N0001</label>
+								 </div>
+                            </div>
+                          </div>
+						  
+						   <div class="row">
+						    <div class="input-field col s12">
+								<div class="col s6">
+                              <label for="JobcardDate">Jobcard Date</label>
+							  </div>
+								<div class="col s6">
+							<label id="JobcardDate"> </label>
+							</div>
+                            </div>
+                          </div>
+						  
+						  
+						   <div class="row">
+                            <div class="input-field col s12">
+							<div class="col s6">
+                              <label for="BikeName">Bike Name</label>
+							  </div>
+							<div class="col s6">
+							<label id="BikeName"> </label>
+							</div>
+                            </div>
+                          </div>
+						  
+						   <div class="row">
+                            <div class="input-field col s12">
+							<div class="col s6">
+                              <label for="ChaseNumber">Chase Number</label>
+							  </div>
+								<div class="col s6">
+							<label id="ChaseNumber"> </label>
+							</div>
+                            </div>
+                          </div>
+						  						  
+						   <div class="row">
+                            <div class="input-field col s12">
+							<div class="col s6">
+                              <label for="RegnNumber">Registration Number</label>
+							  </div>
+								<div class="col s6">
+							<label id="RegnNumber"> </label>
+							</div>
+                            </div>
+                          </div>
+						  
+                          <div class="row">
+                            <div class="input-field col s12">
+							<div class="col s6">
+                              <label for="Complaints">Complaints</label>
+							  </div>
+							<div class="col s6">
+							<label id="Complaints"> </label>
+							</div>
+                            </div>
+                          </div>
+						  
+						   <div class="row">
+                            <div class="input-field col s12">
+							<div class="col s6">
+									<label for="Comments">Comments</label>
+							  </div>
+							<div class="col s6">
+								<label id="Comments"> </label>
+							</div>
+                            </div>
+                          </div>
+						  
+						  <div class="row">
+							<div class="input-field last img col s12">
+								 <div class="image">
+									<div class="col s6">
+										<label for="DigitalSignature">Digital Signature</label>
+									</div>
+									<div class="col s6">
+										<img src="" id="digitalsign" style="width:100%; Height:100px;" /> 
+									</div>
+							   </div>
+						   </div>
+						 </div>	
+						 
+                            <div class="row">
+                              <div class="input-field last col s12">
+								  <div class="center">
+										<button class="btn cyan waves-effect waves-light right" onclick="PrintJobcard()" id="submit" type="submit" name="action">Print
+										</button>
+									</div>
+                              </div>
+                            </div>
+							
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+             </div>
+		 </div>
+		</section>
+	</div>
+      <!-- jQuery Library -->
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	  <script type="text/javascript" src="js/jquery.min.js"></script>
+	  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+      <script type="text/javascript" src="js/plugins.js"></script>
+      <script type="text/javascript" src="js/custom-script.js"></script>
+	  
+	  <script>
+	  $(document).ready(function() {
+	  debugger;
+	  	var JobcardCode = getParameterByName('JobcardCode');
+		if(JobcardCode!=null && JobcardCode!="")
+		{
+			var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + JobcardCode + '&amp;size=50x50';
+			$('#barcode').attr('src', url);
+		}
+		
+	    var url = "https://vechileservice.000webhostapp.com/auth.php";
+			var loginString ="JobcardCode="+JobcardCode+"&Page=JobCardView";
+			$.ajax({
+                    type: "POST",crossDomain: true, cache: false,
+                    url: url,
+                    data: loginString,
+                    success: function(data){
+					debugger;
+					var words = data.split('~');
+                      	$("#JobcardCode").html(JobcardCode);
+						$( "#JobcardDate" ).html(words[0]);
+						$("#BikeName").html(words[1]);
+						$("#ChaseNumber").html(words[2]);
+						$("#RegnNumber").html(words[3]);
+						$("#Complaints").html(words[4]);
+						$("#Comments").html(words[5]);
+					var image="https://vechileservice.000webhostapp.com/signatures/"+words[6];
+						$("#digitalsign").attr("src",image); 
+                    }
+                });					
+        });
+		function PrintJobcard()
+		{
+		debugger;
+			var ua = navigator.userAgent.toLowerCase();
+			var isAndroid = ua.indexOf("android") > -1; 
+				if (isAndroid) {
+				  var gadget = new cloudprint.Gadget();
+				  gadget.setPrintDocument("url", $('title').html(), window.location.href, "utf-8");
+				  gadget.openPrintDialog();
+				} else {
+				  window.print();
+				}
+				return false;
+		}
+		
+		</script>
+	</body>
+</html>
